@@ -1,13 +1,13 @@
 export interface VideoJuego {
-  developer: string;
-  freetogame_profile_url: string;
+  id: number;
+  title:string;
+  thumbnail: string;
+  short_description: string;
   game_url: string;
   genre: string;
-  id: number;
   platform: string;
   publisher: string;
+  developer:string;
   release_date: string;
-  short_description: string;
-  thumbnail: string;
-  title: string;
+  freetogame_profile_url: string;
 }

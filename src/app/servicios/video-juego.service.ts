@@ -1,20 +1,24 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { VideoJuego } from '../models/videoJuego.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class VideoJuegoService {
 
-  url = '/api/games?category=shooter';
-
   constructor(private http: HttpClient) {
     console.log('servicio video juegos');
   }
   getVideoJuegos() {
-    let header = new HttpHeaders().set('Type-content', 'aplication/json');
-    return this.http.get(this.url, {
-      headers: header,
-    });
-  }
+    return this.http.get<VideoJuego[]>('/api/games?category=shooter')
+    }
+
+
+
+
+
+
+
+
 }

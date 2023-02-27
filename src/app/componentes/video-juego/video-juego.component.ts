@@ -1,30 +1,29 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { VideoJuego } from '../../models/videoJuego.model';
 
 @Component({
   selector: 'app-video-juego',
   templateUrl: './video-juego.component.html',
-  styleUrls: ['./video-juego.component.scss']
+  styleUrls: ['./video-juego.component.scss'],
 })
 export class VideoJuegoComponent implements OnInit {
-
-  VideoJuego:VideoJuego ={
-    developer: '',
-    freetogame_profile_url: '',
+  @Input() juego: VideoJuego = {
+    id: 0,
+    title: '',
+    thumbnail: '',
+    short_description: '',
     game_url: '',
     genre: '',
-    id: 0,
     platform: '',
     publisher: '',
+    developer: '',
     release_date: '',
-    short_description: '',
-    thumbnail: '',
-    title: '',
-  }
+    freetogame_profile_url: '',
+  };
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
+    console.log(this.juego);
   }
-
 }
