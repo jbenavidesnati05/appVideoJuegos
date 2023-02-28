@@ -12,7 +12,6 @@ export class TiendaService {
   constructor(
     private http :HttpClient
   ) {
-
    }
  getListaJuegos(){
   return this.listaJuegos
