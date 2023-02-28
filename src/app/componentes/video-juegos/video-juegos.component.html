@@ -1,19 +1,5 @@
 <div class="container">
   <div class="row">
-    <!-- inicio FOR  -->
-      <div class="col-12 col-md-6 col-lg-6 col-xl-4 col-xxl-3 mb-4" *ngFor="let juego of listajuegos">
-        <div class="card" style="width: 18rem;"style="height: 27rem;">
-          <img [src]="juego.thumbnail" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">{{juego.title}}</h5>
-            <p>{{ juego.short_description }}</p>
-            <a href="#" class="btn btn-dark">Ver mas</a>
-            <a href="#" class="btn btn-danger">favoritos</a>
-          </div>
-        </div>
-      </div>
-    <!-- fin FOR  -->
-    </div>
+      <app-video-juego class="col-12 col-md-6 col-lg-6 col-xl-4 col-xxl-3 mb-4" [juego]="juego" *ngFor="let juego of listajuegos" ></app-video-juego>
+  </div>
 </div>
-
-

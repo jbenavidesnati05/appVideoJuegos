@@ -26,4 +26,6 @@ export class VideoJuegosComponent implements OnInit {
       console.log(this.listajuegos);
     });
   }
+  mostrarDetalle(){
+  }
 }
