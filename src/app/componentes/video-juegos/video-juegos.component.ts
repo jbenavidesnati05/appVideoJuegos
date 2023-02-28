@@ -11,7 +11,8 @@ import { TiendaService } from 'src/app/servicios/tienda.service';
 export class VideoJuegosComponent implements OnInit {
   listajuegos: VideoJuego[] = [];
   videoJuegoVerMas: any;
-  showList = true;
+  miListaFavoritos:VideoJuego[]=[]
+  cantidadFavoritos = 0
 
   constructor(
     private videoJuegoService: VideoJuegoService,
@@ -26,6 +27,12 @@ export class VideoJuegosComponent implements OnInit {
       console.log(this.listajuegos);
     });
   }
-  mostrarDetalle(){
+
+  adicionarFavorito(juego: VideoJuego){
+    console.log(juego);
+    this.miListaFavoritos.push(juego);
+    this.cantidadFavoritos = this.miListaFavoritos.length
+    console.log(this.cantidadFavoritos);
+    console.log(this.miListaFavoritos);
   }
 }

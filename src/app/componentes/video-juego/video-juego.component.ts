@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output,EventEmitter } from '@angular/core';
 import { VideoJuego } from '../../models/videoJuego.model';
 
 @Component({
@@ -7,6 +7,8 @@ import { VideoJuego } from '../../models/videoJuego.model';
   styleUrls: ['./video-juego.component.scss'],
 })
 export class VideoJuegoComponent implements OnInit {
+
+
   @Input() juego: VideoJuego = {
     id: 0,
     title: '',
@@ -21,9 +23,14 @@ export class VideoJuegoComponent implements OnInit {
     freetogame_profile_url: '',
   };
 
+  @Output() favoritoAgregado = new EventEmitter<VideoJuego>();
+
   constructor() {}
 
   ngOnInit(): void {
-    console.log(this.juego);
+    // console.log(this.juego);
+  }
+  agregarFavoritos(){
+    this.favoritoAgregado.emit(this.juego)
   }
 }
