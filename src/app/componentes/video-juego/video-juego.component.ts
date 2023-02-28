@@ -24,6 +24,7 @@ export class VideoJuegoComponent implements OnInit {
   };
 
   @Output() favoritoAgregado = new EventEmitter<VideoJuego>();
+  @Output() mostrarVideoJuego = new EventEmitter<number>();
 
   constructor() {}
 
@@ -32,5 +33,8 @@ export class VideoJuegoComponent implements OnInit {
   }
   agregarFavoritos(){
     this.favoritoAgregado.emit(this.juego)
+  }
+  mostrarDetalle(){
+      this.mostrarVideoJuego.emit(this.juego.id)
   }
 }

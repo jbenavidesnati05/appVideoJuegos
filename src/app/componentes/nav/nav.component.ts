@@ -7,7 +7,7 @@ import { Component, OnInit,Input } from '@angular/core';
 })
 export class NavComponent implements OnInit {
 
- @Input() cantidadFavoritos = 0
+//  @Input() cantidadFavoritos = 0
 
 
   constructor() { }

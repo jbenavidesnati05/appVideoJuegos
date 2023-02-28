@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { VideoJuego } from 'src/app/models/videoJuego.model';
 import { VideoJuegoService } from 'src/app/servicios/video-juego.service';
 import { TiendaService } from 'src/app/servicios/tienda.service';
@@ -11,28 +11,43 @@ import { TiendaService } from 'src/app/servicios/tienda.service';
 export class VideoJuegosComponent implements OnInit {
   listajuegos: VideoJuego[] = [];
   videoJuegoVerMas: any;
-  miListaFavoritos:VideoJuego[]=[]
-  cantidadFavoritos = 0
+  miListaFavoritos: VideoJuego[] = [];
+  cantidadFavoritos = 0;
+  VideoJuegofavorito: VideoJuego = {
+    id: 0,
+    title: '',
+    thumbnail: '',
+    short_description: '',
+    game_url: '',
+    genre: '',
+    platform: '',
+    publisher: '',
+    developer: '',
+    release_date: '',
+    freetogame_profile_url: '',
+  };
 
   constructor(
     private videoJuegoService: VideoJuegoService,
     private tiendaService: TiendaService
   ) {
     this.listajuegos = this.tiendaService.getListaJuegos();
+    this.miListaFavoritos = this.tiendaService.miListaFavoritos;
   }
 
   ngOnInit(): void {
     this.videoJuegoService.getVideoJuegos().subscribe((data) => {
-      this.listajuegos = data;
-      console.log(this.listajuegos);
+    this.listajuegos = data;
+    console.log(this.listajuegos);
     });
   }
-
-  adicionarFavorito(juego: VideoJuego){
-    console.log(juego);
-    this.miListaFavoritos.push(juego);
-    this.cantidadFavoritos = this.miListaFavoritos.length
-    console.log(this.cantidadFavoritos);
-    console.log(this.miListaFavoritos);
+  adicionarFavorito(juego: VideoJuego) {
+    this.tiendaService.agregarfavoritoService(juego);
+  }
+  abrirMostrarVideo(id: number) {
+    this.videoJuegoService.getVideoJuego(id).subscribe((data) => {
+    console.log('product', data);
+    this.VideoJuegofavorito =data;
+    });
   }
 }
