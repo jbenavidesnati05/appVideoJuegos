@@ -1,4 +1,4 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { VideoJuego } from 'src/app/models/videoJuego.model';
 import { TiendaService } from 'src/app/servicios/tienda.service';
 
@@ -8,6 +8,7 @@ import { TiendaService } from 'src/app/servicios/tienda.service';
   styleUrls: ['./nav.component.scss']
 })
 export class NavComponent implements OnInit {
+
   miListaFavoritos:VideoJuego[]=[]
 
 

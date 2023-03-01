@@ -20,4 +20,10 @@ export class TiendaService {
     this.miListaFavoritos.push(juego);
     console.log(this.miListaFavoritos);
   }
+  eliminarFavoritoService(id: number) {
+    let respuesta = confirm('¿Estas seguro de eliminar el videojuego?');
+    if (respuesta) {
+      this.miListaFavoritos.splice(id, 1);
+    }
+  }
 }
