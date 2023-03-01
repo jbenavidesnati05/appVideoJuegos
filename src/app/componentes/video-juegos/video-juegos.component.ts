@@ -47,7 +47,8 @@ export class VideoJuegosComponent implements OnInit {
   abrirMostrarVideo(id: number) {
     this.videoJuegoService.getVideoJuego(id).subscribe((data) => {
     console.log('product', data);
-    this.VideoJuegofavorito =data;
+    this.VideoJuegofavorito = data;
     });
   }
+
 }
