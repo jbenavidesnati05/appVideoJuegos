@@ -1,6 +1,5 @@
 <div class="container">
-  <div *ngFor="let favorito of miListaFavoritos">
-  </div>
+
   <div class="row">
       <app-video-juego
       class="col-12 col-md-6 col-lg-6 col-xl-4 col-xxl-3 mb-4"
@@ -28,8 +27,8 @@
         <p><strong>Descripcion: </strong>{{VideoJuegofavorito.short_description}}</p>
       </div>
       <div class="modal-footer">
+        <button type="button" class="btn btn-danger"(click)="adicionarFavorito(VideoJuegofavorito)" >Agreagr a favoritos</button>
         <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-danger"(click)="adicionarFavorito(VideoJuegofavorito)" >favoritos</button>
       </div>
     </div>
   </div>

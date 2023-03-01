@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { VideoJuegoComponent } from './componentes/video-juego/video-juego.component';
 import { VideoJuegosComponent } from './componentes/video-juegos/video-juegos.component';
 import { NavComponent } from './componentes/nav/nav.component';
+import { FavoritosComponent } from './componentes/favoritos/favoritos.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     VideoJuegoComponent,
     VideoJuegosComponent,
-    NavComponent
+    NavComponent,
+    FavoritosComponent
   ],
   imports: [
     BrowserModule,
