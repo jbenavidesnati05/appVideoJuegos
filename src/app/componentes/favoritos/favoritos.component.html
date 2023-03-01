@@ -1,9 +1,31 @@
 <div class="container">
-  <div class="row">
-    <div class="col">
-      <p>favoritos works!</p>
-        <!-- <div *ngFor="let favorito of miListaFavoritos">
-  </div> -->
+  <div class="card">
+    <div class="card-header">
+      <h3>Video Juegos Favoritos</h3>
     </div>
-  </div>
-</div>
+    <div class="card-body">
+      <table class="table table-hover">
+        <thead>
+          <tr class="text-center">
+            <th>ID</th>
+            <th>TITULO</th>
+            <th>GENERO</th>
+            <th>SISTEMA OPERATIVO</th>
+            <th>ACCIÓN</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="text-center" *ngFor="let favorito of miListaFavoritos">
+            <td>{{favorito.id}}</td>
+            <td>{{favorito.title}}</td>
+            <td>{{favorito.genre}}</td>
+            <td>{{favorito.platform}}</td>
+            <td>
+              <button class="btn btn-danger">Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+
+      </table>
+    </div>
+

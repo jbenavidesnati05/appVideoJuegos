@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { VideoJuego } from 'src/app/models/videoJuego.model';
+import { TiendaService } from 'src/app/servicios/tienda.service';
+
+
 
 @Component({
   selector: 'app-favoritos',
@@ -7,9 +11,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FavoritosComponent implements OnInit {
 
-  constructor() { }
+  miListaFavoritos:VideoJuego[]=[]
+
+  constructor(
+    private tiendaService: TiendaService
+  ) {
+    this.miListaFavoritos = this.tiendaService.miListaFavoritos;
+   }
 
   ngOnInit(): void {
+    console.log(this.miListaFavoritos);
   }
 
 }

@@ -37,8 +37,8 @@ export class VideoJuegosComponent implements OnInit {
 
   ngOnInit(): void {
     this.videoJuegoService.getVideoJuegos().subscribe((data) => {
-    this.listajuegos = data;
-    console.log(this.listajuegos);
+      this.listajuegos = data;
+      console.log(this.listajuegos);
     });
   }
   adicionarFavorito(juego: VideoJuego) {
@@ -46,9 +46,8 @@ export class VideoJuegosComponent implements OnInit {
   }
   abrirMostrarVideo(id: number) {
     this.videoJuegoService.getVideoJuego(id).subscribe((data) => {
-    console.log('product', data);
-    this.VideoJuegofavorito = data;
+      // console.log('product', data);
+      this.VideoJuegofavorito = data;
     });
   }
-
 }

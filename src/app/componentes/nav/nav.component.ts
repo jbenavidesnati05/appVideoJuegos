@@ -1,4 +1,6 @@
 import { Component, OnInit,Input } from '@angular/core';
+import { VideoJuego } from 'src/app/models/videoJuego.model';
+import { TiendaService } from 'src/app/servicios/tienda.service';
 
 @Component({
   selector: 'app-nav',
@@ -6,13 +8,17 @@ import { Component, OnInit,Input } from '@angular/core';
   styleUrls: ['./nav.component.scss']
 })
 export class NavComponent implements OnInit {
+  miListaFavoritos:VideoJuego[]=[]
 
-//  @Input() cantidadFavoritos = 0
 
-
-  constructor() { }
+  constructor(
+    private tiendaService: TiendaService
+  ) {
+    this.miListaFavoritos = this.tiendaService.miListaFavoritos;
+   }
 
   ngOnInit(): void {
+    console.log(this.miListaFavoritos);
   }
 
 }
