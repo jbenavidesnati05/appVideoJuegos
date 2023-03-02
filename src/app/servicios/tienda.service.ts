@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { VideoJuego } from '../models/videoJuego.model';
+import  Swal  from 'sweetalert2';
+
 
 @Injectable({
   providedIn: 'root',
@@ -15,25 +17,42 @@ export class TiendaService {
     return this.listaJuegos;
   }
 
-  // encontrar juego agregado a favoritos
-  // encontrarJuegoFavorito(juego: VideoJuego) {
-  //   var encontrado = this.miListaFavoritos.includes(juego);
-  //   console.log(encontrado);
-  // }
-
   agregarfavoritoService(juego: VideoJuego) {
     if (!this.miListaFavoritos.includes(juego)) {
       this.miListaFavoritos.push(juego);
-      alert("Videojuego agregado con exito !!!")
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Agregado a favoritos con exito!!!',
+        showConfirmButton: false,
+        timer: 2000
+      })
     }else{
-      alert("Este video ya esta en tu lista de favoritos !!!")
+      Swal.fire({
+        icon: 'error',
+        title: 'Este videojuego',
+        text: 'ya fue agregado a favoritos',
+        footer: ''
+      })
+
     }
   }
 
   eliminarFavoritoService(id: number) {
-    let respuesta = confirm('¿Estas seguro de eliminar el videojuego?');
-    if (respuesta) {
+    Swal.fire({
+      title: 'Deseas eliminarlo de tu lista de favoritos ?',
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: 'Si',
+      denyButtonText: `No`,
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
       this.miListaFavoritos.splice(id, 1);
-    }
+        Swal.fire('Videojuego eliminado!', '', 'success')
+      } else if (result.isDenied) {
+        Swal.fire('El videojuego no fue eliminado', '', 'info')
+      }
+    })
   }
 }

@@ -19,7 +19,6 @@ export class NavComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    console.log(this.miListaFavoritos);
   }
 
 }

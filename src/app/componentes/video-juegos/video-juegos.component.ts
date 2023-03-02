@@ -38,7 +38,6 @@ export class VideoJuegosComponent implements OnInit {
   ngOnInit(): void {
     this.videoJuegoService.getVideoJuegos().subscribe((data) => {
       this.listajuegos = data;
-      console.log(this.listajuegos);
     });
   }
   adicionarFavorito(juego: VideoJuego) {
