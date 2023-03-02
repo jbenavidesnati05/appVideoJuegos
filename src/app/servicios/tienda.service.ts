@@ -7,19 +7,29 @@ import { VideoJuego } from '../models/videoJuego.model';
 })
 export class TiendaService {
   miListaFavoritos: VideoJuego[] = [];
-  cantidadFavoritos = 0;
-
   private listaJuegos: VideoJuego[] = [];
+  encontrado: number = 0;
 
   constructor(private http: HttpClient) {}
   getListaJuegos() {
     return this.listaJuegos;
   }
 
+  // encontrar juego agregado a favoritos
+  // encontrarJuegoFavorito(juego: VideoJuego) {
+  //   var encontrado = this.miListaFavoritos.includes(juego);
+  //   console.log(encontrado);
+  // }
+
   agregarfavoritoService(juego: VideoJuego) {
-    this.miListaFavoritos.push(juego);
-    console.log(this.miListaFavoritos);
+    if (!this.miListaFavoritos.includes(juego)) {
+      this.miListaFavoritos.push(juego);
+      alert("Videojuego agregado con exito !!!")
+    }else{
+      alert("Este video ya esta en tu lista de favoritos !!!")
+    }
   }
+
   eliminarFavoritoService(id: number) {
     let respuesta = confirm('¿Estas seguro de eliminar el videojuego?');
     if (respuesta) {
