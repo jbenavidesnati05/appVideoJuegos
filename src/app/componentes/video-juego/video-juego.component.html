@@ -1,1 +1,21 @@
-<p>video-juego works!</p>
+<div  class="card" style="width: 18rem">
+  <img [src]="juego.thumbnail" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h6 class="card-title">{{juego.title}}</h6>
+      <div class="card-text">
+      <p>{{ juego.short_description }}</p>
+      </div>
+      <div class="card-button">
+        <button
+          type="button"
+          class="btn btn-dark"
+          data-bs-toggle="modal"
+          (click)="mostrarDetalle()"
+          data-bs-target="#exampleModal">
+          Ver más...
+        </button>
+      </div>
+    </div>
+</div>
+
+

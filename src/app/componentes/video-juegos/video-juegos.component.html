@@ -1,1 +1,32 @@
-<p>video-juegos works!</p>
+<div class="container">
+  <div class="row">
+      <app-video-juego
+      class=" col col-md-6 col-lg-6 col-xl-4 col-xxl-3 mb-4"
+      [juego]="juego"
+      *ngFor="let juego of listajuegos"
+      (favoritoAgregado)="adicionarFavorito($event)"
+      (mostrarVideoJuego)="abrirMostrarVideo($event)"
+      ></app-video-juego>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <img class="card-img-top"  [src]="VideoJuegofavorito.thumbnail"alt="">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel"></h1>
+      </div>
+      <div class="modal-body">
+        <h5>{{VideoJuegofavorito.title}}</h5>
+        <p><strong>Genero: </strong>{{VideoJuegofavorito.genre}}</p>
+        <p><strong>Sistema operativo: </strong>{{VideoJuegofavorito.platform}}</p>
+        <p><strong> Pagina web: </strong>{{VideoJuegofavorito.freetogame_profile_url}}</p>
+        <p><strong>Descripcion: </strong>{{VideoJuegofavorito.short_description}}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger"(click)="adicionarFavorito(VideoJuegofavorito)" >Agregar a favoritos</button>
+        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
