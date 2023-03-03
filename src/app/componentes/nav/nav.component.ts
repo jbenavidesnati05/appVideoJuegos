@@ -11,7 +11,6 @@ export class NavComponent implements OnInit {
 
   miListaFavoritos:VideoJuego[]=[]
 
-
   constructor(
     private tiendaService: TiendaService
   ) {

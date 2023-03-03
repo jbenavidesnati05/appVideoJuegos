@@ -7,7 +7,6 @@ import { VideoJuego } from '../models/videoJuego.model';
 })
 export class VideoJuegoService {
 
-
   constructor(private http: HttpClient) {
   }
   getVideoJuegos() {
@@ -16,12 +15,5 @@ export class VideoJuegoService {
   getVideoJuego(id:number){
     return this.http.get<VideoJuego>(`api/game?id=${id}`)
   }
-
-
-
-
-
-
-
 
 }

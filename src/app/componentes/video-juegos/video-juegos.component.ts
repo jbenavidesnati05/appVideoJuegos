@@ -9,6 +9,7 @@ import { TiendaService } from 'src/app/servicios/tienda.service';
   styleUrls: ['./video-juegos.component.scss'],
 })
 export class VideoJuegosComponent implements OnInit {
+
   listajuegos: VideoJuego[] = [];
   videoJuegoVerMas: any;
   miListaFavoritos: VideoJuego[] = [];
@@ -40,12 +41,15 @@ export class VideoJuegosComponent implements OnInit {
       this.listajuegos = data;
     });
   }
+
   adicionarFavorito(juego: VideoJuego) {
     this.tiendaService.agregarfavoritoService(juego);
   }
+
   abrirMostrarVideo(id: number) {
     this.videoJuegoService.getVideoJuego(id).subscribe((data) => {
       this.VideoJuegofavorito = data;
     });
   }
+  
 }

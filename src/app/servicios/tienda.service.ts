@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { VideoJuego } from '../models/videoJuego.model';
-import  Swal  from 'sweetalert2';
-
+import Swal from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root',
@@ -10,7 +9,6 @@ import  Swal  from 'sweetalert2';
 export class TiendaService {
   miListaFavoritos: VideoJuego[] = [];
   private listaJuegos: VideoJuego[] = [];
-  encontrado: number = 0;
 
   constructor(private http: HttpClient) {}
   getListaJuegos() {
@@ -25,16 +23,15 @@ export class TiendaService {
         icon: 'success',
         title: 'Agregado a favoritos con exito!!!',
         showConfirmButton: false,
-        timer: 2000
-      })
-    }else{
+        timer: 2000,
+      });
+    } else {
       Swal.fire({
         icon: 'error',
         title: 'Este videojuego',
         text: 'ya fue agregado a favoritos',
-        footer: ''
-      })
-
+        footer: '',
+      });
     }
   }
 
@@ -46,13 +43,12 @@ export class TiendaService {
       confirmButtonText: 'Si',
       denyButtonText: `No`,
     }).then((result) => {
-      /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
-      this.miListaFavoritos.splice(id, 1);
-        Swal.fire('Videojuego eliminado!', '', 'success')
+        this.miListaFavoritos.splice(id, 1);
+        Swal.fire('Videojuego eliminado!', '', 'success');
       } else if (result.isDenied) {
-        Swal.fire('El videojuego no fue eliminado', '', 'info')
+        Swal.fire('El videojuego no fue eliminado', '', 'info');
       }
-    })
+    });
   }
 }

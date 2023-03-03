@@ -8,7 +8,6 @@ import { VideoJuego } from '../../models/videoJuego.model';
 })
 export class VideoJuegoComponent implements OnInit {
 
-
   @Input() juego: VideoJuego = {
     id: 0,
     title: '',
@@ -29,11 +28,12 @@ export class VideoJuegoComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    // console.log(this.juego);
   }
+
   agregarFavoritos(){
     this.favoritoAgregado.emit(this.juego)
   }
+
   mostrarDetalle(){
       this.mostrarVideoJuego.emit(this.juego.id)
   }

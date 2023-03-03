@@ -15,9 +15,10 @@ export class FavoritosComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.miListaFavoritos);
   }
+
   eliminarFavorito(id: number) {
     this.tiendaService.eliminarFavoritoService(id);
   }
+  
 }

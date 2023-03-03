@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
       <app-video-juego
-      class="col-12 col-md-6 col-lg-6 col-xl-4 col-xxl-3 mb-4"
+      class=" col col-md-6 col-lg-6 col-xl-4 col-xxl-3 mb-4"
       [juego]="juego"
       *ngFor="let juego of listajuegos"
       (favoritoAgregado)="adicionarFavorito($event)"
@@ -9,17 +9,15 @@
       ></app-video-juego>
   </div>
 </div>
-<!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-      <img [src]="VideoJuegofavorito.thumbnail"alt="">
+      <img class="card-img-top"  [src]="VideoJuegofavorito.thumbnail"alt="">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="exampleModalLabel"></h1>
-        <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
       </div>
       <div class="modal-body">
-        <h2>{{VideoJuegofavorito.title}}</h2>
+        <h5>{{VideoJuegofavorito.title}}</h5>
         <p><strong>Genero: </strong>{{VideoJuegofavorito.genre}}</p>
         <p><strong>Sistema operativo: </strong>{{VideoJuegofavorito.platform}}</p>
         <p><strong> Pagina web: </strong>{{VideoJuegofavorito.freetogame_profile_url}}</p>
@@ -32,4 +30,3 @@
     </div>
   </div>
 </div>
-<!-- fin  modal  -->
